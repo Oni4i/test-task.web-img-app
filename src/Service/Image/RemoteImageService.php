@@ -28,7 +28,7 @@ class RemoteImageService implements RemoteImageServiceInterface
             : null;
         $content = $response->getContent();
 
-        if (!$mimeType) {
+        if (!$mimeType || !strpos($mimeType, 'image/')) {
             return null;
         }
 

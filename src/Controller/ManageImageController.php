@@ -36,9 +36,13 @@ class ManageImageController extends AbstractController
             /** @var UploadedImageUrlDTO $urlDto */
             $urlDto = $form->getData();
             $image = $this->remoteImageService->saveRemoteImage($urlDto->getUrl());
-            $this->imageService->saveImage($image);
 
-            $this->addFlash('success', 'The image was created!');
+            if ($image) {
+                $this->imageService->saveImage($image);
+                $this->addFlash('success', 'The image was created!');
+            } else {
+                $this->addFlash('error', 'Something went wrong :(');
+            }
         }
 
         return $this->render('image/add.html.twig', [
