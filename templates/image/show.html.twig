@@ -1,0 +1,25 @@
+{% extends 'base.html.twig' %}
+
+{% block content %}
+    <div class="row mb-5">
+        <div class="col-12">
+            <a href="{{ path('app_manageimage_create') }}" class="btn btn-primary">Add URL</a>
+        </div>
+    </div>
+    {% for row in grid.imagesPath %}
+        <div class="row">
+            {% for path in row %}
+                <div class="col-3">
+                    <img src="{{ path }}" alt="" class="mw-100 mh-100 w-100 h-100">
+                </div>
+            {% endfor %}
+        </div>
+    {% endfor %}
+
+    <div class="row mt-5">
+        <h3 class="col-12">
+            На странице обнаружено: {{ grid.count }} изображений
+            на {{ grid.size }} {{ grid.measurement }}
+        </h3>
+    </div>
+{% endblock %}

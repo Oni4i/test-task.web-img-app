@@ -1,0 +1,21 @@
+{% extends 'base.html.twig' %}
+
+{% block content %}
+    <div class="row mb-5">
+        <div class="col-12">
+            <a href="{{ path('app_manageimage_index') }}" class="btn btn-primary">Show all</a>
+        </div>
+    </div>
+    <div class="row">
+        {% for message in app.flashes('success') %}
+            <div class="alert alert-success">
+                {{ message }}
+            </div>
+        {% endfor %}
+    </div>
+    {{ form_start(form) }}
+        {% for child in form.children %}
+
+        {% endfor %}
+    {{ form_end(form) }}
+{% endblock %}
