@@ -21,6 +21,8 @@ if [ $# -gt 0 ]; then
         SECRET=$(./d secret)
       fi
 
+      mkdir -m 777 public/img
+
       cp .env.dist .env &&
         echo $SECRET >> .env &&
         $DOCKER_COMPOSE_EXEC up -d &&

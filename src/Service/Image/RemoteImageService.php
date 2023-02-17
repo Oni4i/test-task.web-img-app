@@ -28,12 +28,13 @@ class RemoteImageService implements RemoteImageServiceInterface
             : null;
         $content = $response->getContent();
 
-        if (!$mimeType || !strpos($mimeType, 'image/')) {
+        if (!$mimeType || strpos($mimeType, 'image/') === -1) {
             return null;
         }
 
         $extension = $this->mimeTypes->getExtension($mimeType);
         $path = $this->generatePath($content, $extension);
+
 
         $this->saveImageLocally($content, $path);
 
