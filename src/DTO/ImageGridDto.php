@@ -7,7 +7,7 @@ class ImageGridDto
     public const IMAGE_COUNT_PER_ROW = 4;
 
     private int $count = 0;
-    private int $size = 0;
+    private float $size = 0;
     private string $measurement = '';
 
     /**
@@ -27,12 +27,12 @@ class ImageGridDto
         return $this;
     }
 
-    public function getSize(): int
+    public function getSize(): float
     {
         return $this->size;
     }
 
-    public function setSize(int $size): self
+    public function setSize(float $size): self
     {
         $this->size = $size;
 

@@ -19,7 +19,7 @@ class ManageImageService
     ): Image {
         return (new Image())
             ->setMimeType($mimeType)
-            ->setSize((string) ceil(filesize($localPath) / 1000000))
+            ->setSize((string) ceil(filesize($localPath) / 1000))
             ->setLocalPath($localPath);
     }
 
@@ -46,7 +46,7 @@ class ManageImageService
             $imagesPath[ceil($count / ImageGridDto::IMAGE_COUNT_PER_ROW)][] = $path;
         }
 
-        $grid->setSize($size);
+        $grid->setSize($size / 1000);
         $grid->setMeasurement('Mb');
         $grid->setCount($count);
         $grid->setImagesPath($imagesPath);

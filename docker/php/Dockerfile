@@ -16,3 +16,7 @@ RUN docker-php-ext-enable xdebug
 
 WORKDIR /app
 
+ARG WWW_DATA_UID=1000
+ARG WWW_DATA_GID=1000
+
+RUN usermod -u ${WWW_DATA_UID} www-data && groupmod -g ${WWW_DATA_GID} www-data
